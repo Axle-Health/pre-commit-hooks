@@ -1,0 +1,6 @@
+-   id: pip-compile
+    name: pip-compile
+    description: "generates requirements.txt from requirements.in using pip-compile"
+    language: script
+    entry: hooks/pip-compile
+    files: ^requirements.(?:in|txt)$
