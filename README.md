@@ -10,7 +10,7 @@ Just a miscellaneous collection of [pre-commit][] hooks.
 To use a pre-commit hook from this repo, simply add something like:
 ```yaml
   - repo: https://github.com/Axle-Health/pre-commit-hooks
-    rev: c4e351bd7cfe61a7f5685596acf6768ccf892346
+    rev: 1.0.0
     hooks:
       - id: pip-compile
 ```
