@@ -1,6 +1,13 @@
 -   id: pip-compile
     name: pip-compile
-    description: "generates requirements.txt from requirements.in using pip-compile"
+    description: "generates requirements.txt file from requirements.in file using pip-compile"
     language: script
     entry: hooks/pip-compile
-    files: ^requirements.(?:in|txt)$
+    files: "^requirements.(?:in|txt)$"
+
+-   id: pip-compile-multi
+    name: pip-compile-multi
+    description: "generates all requirements.txt files from all requirements.in files using pip-compile"
+    language: script
+    entry: hooks/pip-compile-multi
+    files: "^.*requirements.(?:in|txt)$"
