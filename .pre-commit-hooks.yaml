@@ -11,3 +11,10 @@
     language: script
     entry: hooks/pip-compile-multi
     files: "^.*requirements.(?:in|txt)$"
+
+-   id: make-migrations
+    name: make-migrations
+    description: "ensures no Django model migrations were forgotten to be made"
+    language: script
+    entry: hooks/make-migrations
+    files: ".+.py"
