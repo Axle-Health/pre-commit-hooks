@@ -5,8 +5,14 @@ pip-compile 2>/dev/null
 
 # pip-compile for any other *requirements.in files.
 for requirements_in_file in *?requirements.in; do
+    echo $requirements_in_file
     pip-compile $requirements_in_file 2>/dev/null
 done
+
+# This will only work for files that are committed to Git.
+# If you have, for example, `local-requirements.in` and `local-requirements.txt` files
+#  that are ignored by Git, even if the `local-requirements.txt` changes, pre-commit
+#  will not complain (though the files will get changed).
 
 # Q: Why do we not handle the requirements.in case alongside the *requirements.in case?
 # A: Because then the comments inside the requirements.txt file say:
@@ -27,4 +33,13 @@ done
 # 
 # which is what is generated if someone just runs pip-compile by itself. This
 # causes superfluous changes that we do not want.
-# 
+
+# TODO: look into the https://github.com/peterdemin/pip-compile-multi repo 
+#
+#  - repo: https://github.com/peterdemin/pip-compile-multi
+#    rev: v1.3.2
+#    hooks:
+#      - id: pip-compile-multi-verify
+#        args: [--directory, .]
+#        files: ".*requirements.+"
+ 
