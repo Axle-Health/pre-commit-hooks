@@ -1,4 +1,4 @@
-_Collection of [pre-commit][] hooks.
+Collection of [pre-commit][] hooks.
 
 - **pip-compile** simply runs `pip-compile` before every commit.
   - **Why?** This makes sure no one you didn’t 1. forget to run `pip-compile` after modifying `requirements.in`, 2. directly modify `requirements.txt` without modifying `requirements.in`, 3. forget to stage either in Git, 4. have inconsistent `requirements.txt` and `requirements.in` for any reason.
@@ -22,7 +22,7 @@ _Collection of [pre-commit][] hooks.
 
 You can try out hooks in this repo without installing them by running
 ```bash
-pre-commit try-repo https://github.com/yatharth/pre-commit-hooks
+pre-commit try-repo https://github.com/Axle-Health/pre-commit-hooks
 ```
 
 To install a pre-commit hook from this repo, simply add something like
