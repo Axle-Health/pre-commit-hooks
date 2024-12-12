@@ -1,4 +1,4 @@
-Collection of [pre-commit][] hooks.
+# Collection of [pre-commit][] hooks.
 
 - **pip-compile** simply runs `pip-compile` before every commit.
   - **Why?** This makes sure no one you didn’t 1. forget to run `pip-compile` after modifying `requirements.in`, 2. directly modify `requirements.txt` without modifying `requirements.in`, 3. forget to stage either in Git, 4. have inconsistent `requirements.txt` and `requirements.in` for any reason.
@@ -10,7 +10,9 @@ Collection of [pre-commit][] hooks.
   - **How it works:** It runs `pip-compile` for every file named `*requirements.in` in the root directory.
   - **Out-of-scope:** This won’t  work for requirements file ignored by Git. They must be staged for pre-commit to notice the `.in` and `.txt` files have fallen out of sync and block the commit.
   - **N.B.:** same as for `pip-compile`.
-  
+
+- **uv-compile** is the same as `pip-compile` but uses [uv][] instead of [pip-tools][] so it can run ultra-fast.
+  - **N.B.** Make sure when pre-commit is running that the right Python virtual is activated if applicable and [uv][] is installed, so the hook can find the right `uv` executable. Otherwise, the hook will fail.
  
 - **make-migrations** makes sure Django migration files have been created.
   - **How it works:** It runs `python manage.py makemigrations --check --dry-run` to make sure no migrations are left to be created.
@@ -37,3 +39,4 @@ to your `.pre-commit-config.yaml` file. Or if you don’t have one already, inst
 
 [pre-commit]: https://pre-commit.com/
 [pip-tools]: https://github.com/jazzband/pip-tools_
+[uv]: https://github.com/astral-sh/uv

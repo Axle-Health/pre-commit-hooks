@@ -12,6 +12,13 @@
     entry: hooks/pip-compile-multi
     files: "^.*requirements.(?:in|txt)$"
 
+-   id: uv-compile
+    name: uv-compile
+    description: "generates requirements.txt file from requirements.in file using uv"
+    language: script
+    entry: hooks/uv-compile
+    files: "^requirements.(?:in|txt)$"
+
 -   id: make-migrations
     name: make-migrations
     description: "ensures no Django model migrations were forgotten to be made"
