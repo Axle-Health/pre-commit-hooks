@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-uv pip compile requirements.in -o requirements.txt 2>/dev/null
+uv pip compile requirements.in -o requirements.txt >/dev/null 2>/dev/null
